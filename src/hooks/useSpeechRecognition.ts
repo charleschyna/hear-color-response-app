@@ -24,8 +24,14 @@ interface SpeechRecognition extends EventTarget {
   removeEventListener: (type: string, listener: EventListener) => void;
 }
 
+// Define the WebkitSpeechRecognition interface for browsers that use the webkit prefix
+interface Window {
+  SpeechRecognition?: new () => SpeechRecognition;
+  webkitSpeechRecognition?: new () => SpeechRecognition;
+}
+
 // Workaround for accessing the Web Speech API which may be prefixed
-const SpeechRecognitionAPI = window.SpeechRecognition || (window as any).webkitSpeechRecognition;
+const SpeechRecognitionAPI = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
 export const useSpeechRecognition = (): SpeechRecognitionHook => {
   const [isListening, setIsListening] = useState(false);
