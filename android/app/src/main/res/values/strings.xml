@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IHearYou</string>
+    <string name="title_activity_main">IHearYou</string>
+    <string name="package_name">app.lovable.e02fb51746964580bd5e70a41c00b959</string>
+    <string name="custom_url_scheme">app.lovable.e02fb51746964580bd5e70a41c00b959</string>
+</resources>
