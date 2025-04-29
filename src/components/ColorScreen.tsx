@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -26,7 +25,7 @@ const ColorScreen: React.FC<ColorScreenProps> = ({ color, isVisible }) => {
   return (
     <div 
       className={cn(
-        'fixed inset-0 flex items-center justify-center transition-all duration-500 ease-out animate-fade-in color-transition',
+        'fixed inset-0 flex items-center justify-center transition-all duration-500 ease-out animate-fade-in color-transition z-50',
         colorClass
       )}
     >
@@ -36,8 +35,16 @@ const ColorScreen: React.FC<ColorScreenProps> = ({ color, isVisible }) => {
         preload="auto"
       />
       
-      <div className="text-white text-4xl font-medium tracking-tight text-shadow-sm animate-scale-in">
-        {message}
+      <div className="relative flex flex-col items-center">
+        <div className="absolute -inset-10 bg-white/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="text-white text-5xl font-bold tracking-tight text-shadow-lg animate-scale-in mb-4">
+          {message}
+        </div>
+        <div className="flex space-x-3 mt-8 animate-fade-in-delay">
+          <div className="w-3 h-3 rounded-full bg-white animate-bounce-slow"></div>
+          <div className="w-3 h-3 rounded-full bg-white animate-bounce-slow delay-100"></div>
+          <div className="w-3 h-3 rounded-full bg-white animate-bounce-slow delay-200"></div>
+        </div>
       </div>
     </div>
   );
